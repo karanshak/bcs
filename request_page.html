@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="inner-page">
+<html lang="en">
 
 <head>
   <meta charset="utf-8" />
@@ -145,9 +145,9 @@
   </header>
 
   <main>
-    <div class="categories-top-container inner-page-top-container">
-      <div class="container">
-        <div class="categories-top-container-inner">
+    <section id="main-content" class="section hero request-page-hero">
+      <div class="hero-inner hero-inner-site">
+        <div class="hero-inner-site-inside">
           <nav class="sub-nav">
             <ol class="breadcrumbs">
               <li>
@@ -168,204 +168,64 @@
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="article-container-outer search-container-outer">
+    <div class="categories-container request-page-container">
       <div class="container">
-        <div class="search-results">
-          <aside class="search-results-sidebar">
-            <section class="filters-in-section collapsible-sidebar">
-              <div class="collapsible-sidebar-top">
-                <button type="button" class="collapsible-sidebar-toggle" aria-expanded="false"
-                  aria-label="Search Result Type Menu">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" focusable="false" viewBox="0 0 12 12"
-                    aria-hidden="true" class="collapsible-sidebar-toggle-icon chevron-icon">
-                    <path fill="none" stroke="currentColor" stroke-linecap="round" d="M3 4.5l2.6 2.6c.2.2.5.2.7 0L9 4.5">
-                    </path>
-                  </svg>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" focusable="false" viewBox="0 0 12 12"
-                    aria-hidden="true" class="collapsible-sidebar-toggle-icon x-icon">
-                    <path stroke="currentColor" stroke-linecap="round" d="M3 9l6-6m0 6L3 3"></path>
-                  </svg>
-                </button>
-                <h3 class="collapsible-sidebar-title sidenav-title">Op categorie</h3>
+        <div class="categories-container-inner request-page-container-inner form">
+          <form id="new_request" class="request-form" data-form="" data-form-type="request" action="/hc/en-us/requests"
+            accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓" autocomplete="off">
+            <div class="form-field select optional request_ticket_form_id">
+              <a class="nesty-input" tabindex="0" aria-haspopup="true" aria-expanded="false" aria-controls="_pwiv62e01"
+                aria-label="Please choose your issue below" style="max-width: 100%;">Een aanvraag indienen</a>
+            </div>
+
+            <div class="form-field string  required  request_subject">
+              <label id="request_subject_label" for="request_subject">E-mailadres*</label>
+              <input type="text" name="request[subject]" id="request_subject" maxlength="150" size="150"
+                aria-required="true" aria-describedby="request_subject_hint" aria-labelledby="request_subject_label" placeholder="Type hier">
+            </div>
+
+            <div class="form-field string  required  request_subject">
+              <label id="request_subject_label" for="request_subject">Onderwerp*</label>
+              <input type="text" name="request[subject]" id="request_subject" maxlength="150" size="150"
+                aria-required="true" aria-describedby="request_subject_hint" aria-labelledby="request_subject_label" placeholder="Type hier">
+            </div>
+
+            <div class="form-field text  optional  request_custom_fields_360027058031">
+              <label id="request_custom_fields_360027058031_label" for="request_custom_fields_360027058031">Beschrijving</label>
+              <textarea name="request[custom_fields][360027058031]" id="request_custom_fields_360027058031"
+                aria-required="false" aria-describedby="request_custom_fields_360027058031_hint"
+                aria-labelledby="request_custom_fields_360027058031_label" placeholder="Type hier"></textarea>
+            </div>
+
+            <div class="form-field string  required  request_subject">
+              <label id="request_subject_label" for="request_subject">Custom field</label>
+              <input type="text" name="request[subject]" id="request_subject" maxlength="150" size="150"
+                aria-required="true" aria-describedby="request_subject_hint" aria-labelledby="request_subject_label" placeholder="Type hier">
+            </div>
+
+            <div class="form-field">
+              <label for="request-attachments">
+                Attachments
+              </label>
+              <div id="upload-dropzone" class="upload-dropzone">
+                <input type="file" multiple="true" id="request-attachments" data-fileupload="true"
+                  data-dropzone="upload-dropzone" data-error="upload-error" data-create-url="/hc/en-us/request_uploads"
+                  data-name="request[attachments][]" data-pool="request-attachments-pool" data-delete-confirm-msg=""
+                  aria-describedby="upload-error">
+                <span>
+                  Sleep bestand hier naartoe of <a>upload een bestand</a> 
+                </span>
               </div>
 
-              <ul class="multibrand-filter-list multibrand-filter-list--collapsed">
-
-                <li>
-
-                  <a href="#" class="sidenav-item current"
-                    aria-current="page">
-
-                    <span class="sidenav-subitem filter-name">Alle categorieën</span>
-                  </a>
-                </li>
-
-                <li>
-
-                  <a href="#"
-                    class="sidenav-item">
-
-                    <span class="sidenav-subitem filter-name">Categorie 1</span>
-                  </a>
-                </li>
-
-                <li>
-
-                  <a href="#"
-                    class="sidenav-item">
-
-                    <span class="sidenav-subitem filter-name">Categorie 2</span>
-                  </a>
-                </li>
-
-                <li>
-
-                  <a href="#"
-                    class="sidenav-item">
-
-                    <span class="sidenav-subitem filter-name">Categorie 3</span>
-                  </a>
-                </li>
-
-              </ul>
-            </section>
 
 
+            </div>
 
-          </aside>
+            <footer><input type="submit" name="commit" value="Verzenden"></footer>
 
-          <section id="main-content-search" class="search-results-column">
-            <h1 class="search-results-subheading">
-              5 resultaten voor ‘verzending’
-            </h1>
-
-            <ul class="search-results-list">
-
-              <li>
-                <article>
-                  <header>
-                    <div class="search-result-title-container">
-                      <h2 class="search-result-title">
-                        <a
-                          href="#">
-                          What are these sections and articles doing here?
-
-                        </a>
-                      </h2>
-                    </div>
-                  </header>
-                  <p class="search-result-description">a section in the General <em>category</em> of your Help Center
-                    knowledge base. We created this <em>category</em> and a few common sections</p>
-                </article>
-              </li>
-
-              <li>
-                <article>
-                  <header>
-                    <div class="search-result-title-container">
-                      <h2 class="search-result-title">
-                        <a
-                          href="#">
-                          What are these sections and articles doing here?
-
-                        </a>
-                      </h2>
-                    </div>
-                  </header>
-                  <p class="search-result-description">a section in the General <em>category</em> of your Help Center
-                    knowledge base. We created this <em>category</em> and a few common sections</p>
-                </article>
-              </li>
-
-              <li>
-                <article>
-                  <header>
-                    <div class="search-result-title-container">
-                      <h2 class="search-result-title">
-                        <a
-                          href="#">
-                          What are these sections and articles doing here?
-
-                        </a>
-                      </h2>
-                    </div>
-                  </header>
-                  <p class="search-result-description">a section in the General <em>category</em> of your Help Center
-                    knowledge base. We created this <em>category</em> and a few common sections</p>
-                </article>
-              </li>
-
-              <li>
-                <article>
-                  <header>
-                    <div class="search-result-title-container">
-                      <h2 class="search-result-title">
-                        <a
-                          href="#">
-                          What are these sections and articles doing here?
-
-                        </a>
-                      </h2>
-                    </div>
-                  </header>
-                  <p class="search-result-description">a section in the General <em>category</em> of your Help Center
-                    knowledge base. We created this <em>category</em> and a few common sections</p>
-                </article>
-              </li>
-
-              <li>
-                <article>
-                  <header>
-                    <div class="search-result-title-container">
-                      <h2 class="search-result-title">
-                        <a
-                          href="#">
-                          What are these sections and articles doing here?
-
-                        </a>
-                      </h2>
-                    </div>
-                  </header>
-                  <p class="search-result-description">a section in the General <em>category</em> of your Help Center
-                    knowledge base. We created this <em>category</em> and a few common sections</p>
-                </article>
-              </li>
-
-            </ul>
-
-            <nav class="pagination">
-              <ul>
-                <li class="pagination-first">
-                  <a href="#">«</a>
-                </li>
-                <li class="pagination-prev">
-                  <a href="#" rel="prev">‹</a>
-                </li>
-                <li>
-                  <a href="#" rel="prev">1</a>
-                </li>
-                <li class="pagination-current">
-                  <span>2</span>
-                </li>
-
-                <li class="pagination-exceed">
-                  <span>...</span>
-                </li>
-                <li>
-                  <a href="#?page=3" rel="next">3</a>
-                </li>
-                <li class="pagination-next">
-                  <a href="#?page=3" rel="next">›</a>
-                </li>
-                <li class="pagination-last">
-                  <a href="#?page=3">»</a>
-                </li>
-              </ul>
-            </nav>
-
-          </section>
+          </form>
         </div>
       </div>
     </div>
