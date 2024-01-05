@@ -213,7 +213,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "roboto", sans-serif;
+  font-family: "proxima", sans-serif;
   margin-top: 0;
 }
 
@@ -2429,8 +2429,6 @@ input[type=submit][disabled] {
 }
 
 .share a svg {
-  height: 18px;
-  width: 18px;
   display: block;
 }
 
@@ -2987,7 +2985,7 @@ input[type=submit][disabled] {
   content: attr(data-follower-count);
   color: #051480;
   display: inline-block;
-  font-family: "roboto", sans-serif;
+  font-family: "proxima", sans-serif;
   margin-left: 15px;
   padding-left: 10px;
   position: absolute;
@@ -5522,6 +5520,14 @@ html {
   overflow-x: hidden;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 700;
+}
+
 a:hover {
   text-decoration: none;
 }
@@ -6771,7 +6777,7 @@ footer.footer {
 
 .form.request-page-container-inner {
   border-radius: 25px;
-  background: #FFF;
+  background: #fff;
   box-shadow: 2px 3px 10px 0px rgba(0, 0, 0, 0.1);
   padding: 40px 48px;
   margin-left: auto;
@@ -6803,7 +6809,8 @@ footer.footer {
   font-size: 1.125em;
   font-weight: 700;
 }
-.form.request-page-container-inner .form-field input, .form.request-page-container-inner .form-field textarea {
+.form.request-page-container-inner .form-field input,
+.form.request-page-container-inner .form-field textarea {
   border-radius: 5px;
   border: 1px solid rgba(5, 20, 128, 0.3);
   padding: 15px 20px;
@@ -6835,7 +6842,7 @@ footer.footer {
   line-height: 24px;
   padding: 10px;
   text-align: left;
-  color: #6A73AC;
+  color: #6a73ac;
   background: url('data:image/svg+xml,<svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.8125 6.49687V20.25H15.1875V6.49687L19.575 10.8844L21.9375 8.4375L13.5 0L5.0625 8.4375L7.425 10.8844L11.8125 6.49687ZM0.991406 26.0086C1.65234 26.6695 2.44688 27 3.375 27H23.625C24.5531 27 25.3477 26.6695 26.0086 26.0086C26.6695 25.3477 27 24.5531 27 23.625V18.5625H23.625V23.625H3.375V18.5625H0V23.625C0 24.5531 0.330469 25.3477 0.991406 26.0086Z" fill="%23CDD0E2"/></svg>') no-repeat 0 center;
   padding-left: 45px;
 }
@@ -6862,7 +6869,8 @@ footer.footer {
   margin-top: 0px;
 }
 
-.button-large, input[type=submit] {
+.button-large,
+input[type=submit] {
   background: #e53390;
   color: #fff;
   font-size: 1.125em;
@@ -6871,7 +6879,8 @@ footer.footer {
   min-width: 160px;
   width: auto;
 }
-.button-large:hover, input[type=submit]:hover {
+.button-large:hover,
+input[type=submit]:hover {
   background: #051480;
 }
 
@@ -6883,16 +6892,48 @@ footer.footer {
 .community-top-container-row .input-group-search input[type=search] {
   min-width: 280px;
 }
+@media (max-width: 767px) {
+  .community-top-container-row .input-group-search input[type=search] {
+    min-width: 245px;
+  }
+}
 .community-top-container-row .search-container {
   max-width: 415px;
 }
+.community-top-container-row .search-container h3 {
+  font-size: 1.25em;
+  margin-bottom: 10px;
+}
 .community-top-container-row .search-container .header__search-wrapper {
   margin-top: 40px;
+}
+@media (max-width: 767px) {
+  .community-top-container-row .search-container .header__search-wrapper {
+    margin-top: 0px;
+    padding-bottom: 30px;
+  }
+}
+@media (max-width: 767px) {
+  .community-top-container-row .category-content header.page-header {
+    padding-bottom: 0px;
+  }
+  .community-top-container-row .category-content header.page-header h1 {
+    display: none;
+  }
 }
 
 /* Community page */
 .community-page-outer {
   padding-bottom: 100px;
+  background: url("../images/Shape-Background-Lightblue.svg") no-repeat -460px -110px;
+  background-size: 60%;
+}
+@media (max-width: 767px) {
+  .community-page-outer {
+    padding-bottom: 80px;
+    background: url(../images/Shape-Background-Lightblue.svg) no-repeat -220px 50%;
+    background-size: 100%;
+  }
 }
 .community-page-outer header {
   background: transparent;
@@ -6911,9 +6952,9 @@ footer.footer {
   padding-bottom: 0px;
 }
 .community-page-outer .community-follow button {
-  background: #e53390;
+  background: transparent;
+  color: #e53390;
   border-color: #e53390;
-  color: #fff;
   font-size: 1.125em;
   font-weight: 700;
   border-radius: 24px;
@@ -6930,6 +6971,9 @@ footer.footer {
   border-radius: 5px;
   padding: 10px 16px;
 }
+.community-page-outer .topic-filters span.dropdown:first-child {
+  display: none;
+}
 .community-page-outer .topic-filters span.dropdown button {
   color: #051480;
 }
@@ -6945,7 +6989,7 @@ footer.footer {
 }
 .community-page-outer .posts-list.striped-list section .striped-list-item {
   border-radius: 10px;
-  background: #FFF;
+  background: #fff;
   box-shadow: 2px 3px 10px 0px rgba(0, 0, 0, 0.1);
   padding: 10px 20px;
   margin-bottom: 16px;
@@ -6979,14 +7023,41 @@ footer.footer {
 .community-page-outer .striped-list-count .striped-list-number {
   font-size: 1.375em;
 }
+@media (max-width: 767px) {
+  .community-page-outer .striped-list-count .striped-list-number {
+    order: 2;
+    font-size: 16px;
+  }
+}
+.community-page-outer .striped-list-count .striped-list-label {
+  min-width: 112px;
+}
 .community-page-outer .striped-list-count-item {
   color: #051480;
+}
+@media (max-width: 767px) {
+  .community-page-outer .striped-list-count-item {
+    display: flex;
+  }
 }
 .community-page-outer .community-footer {
   text-align: left;
 }
+@media (max-width: 767px) {
+  .community-page-outer .community-footer {
+    padding-top: 30px;
+  }
+}
 .community-page-outer .community-footer .community-footer-title {
   font-size: 2.125em;
+}
+.community-page-outer .community-footer .community-footer-title.community-footer-title-post-page {
+  font-size: 1.5625em;
+}
+@media (max-width: 767px) {
+  .community-page-outer .community-footer .community-footer-title {
+    font-size: 25px;
+  }
 }
 .community-page-outer .community-footer .button {
   background: transparent;
@@ -6997,4 +7068,168 @@ footer.footer {
 .community-page-outer .community-footer .button:hover {
   background: #e53390;
   color: #fff;
+}
+
+.show-desktop {
+  display: none;
+}
+@media (min-width: 768px) {
+  .show-desktop {
+    display: inline-block;
+  }
+}
+
+.show-mobile {
+  display: none;
+}
+@media (max-width: 767px) {
+  .show-mobile {
+    display: inline-block;
+  }
+}
+
+.striped-list-count-item::after {
+  display: none;
+}
+
+.post-footer {
+  justify-content: end;
+  padding-bottom: 12px;
+}
+
+h2.comment-heading {
+  font-size: 1.5625em;
+  font-weight: 700;
+}
+
+.comment-callout {
+  color: rgba(5, 20, 128, 0.5);
+}
+
+.comment-overview {
+  border-color: #cdd0e2;
+}
+
+.post-comments {
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 2px 3px 10px 0px rgba(0, 0, 0, 0.1);
+  margin-top: 48px;
+}
+
+.comment-form {
+  padding: 12px 14px 18px 14px;
+}
+
+@media (min-width: 1024px) {
+  .post {
+    flex: 1 0 62%;
+    max-width: 62%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.post-title {
+  padding-right: 0px;
+}
+@media (max-width: 767px) {
+  .post-title {
+    margin-bottom: 0px;
+  }
+}
+.post-title h1 {
+  font-size: 1.875em;
+  margin-right: 0px;
+}
+@media (max-width: 767px) {
+  .post-title h1 {
+    font-size: 25px;
+    line-height: 1.3;
+  }
+}
+
+.post-author-label {
+  font-size: 1.25em;
+  font-weight: 700;
+}
+
+.post-header {
+  margin-bottom: 20px;
+}
+
+.post-meta-grp {
+  float: left;
+}
+.post-meta-grp span {
+  display: block;
+}
+.post-meta-grp span a {
+  color: #051480;
+}
+
+.meta-group-opposite-site {
+  display: flex;
+  align-items: center;
+}
+.meta-group-opposite-site .community-follow {
+  margin-right: 14px;
+}
+@media (max-width: 767px) {
+  .meta-group-opposite-site .community-follow {
+    margin-right: 0px;
+  }
+}
+
+.post-body p {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.post-avatar {
+  margin-bottom: 18px;
+}
+
+.share li {
+  margin-left: 15px;
+}
+.share li:first-child {
+  margin-left: 0px;
+}
+
+.comment-container h3 {
+  margin-bottom: 5px;
+}
+.comment-container textarea {
+  border-radius: 5px;
+  border-color: rgba(5, 20, 128, 0.3);
+  font-size: 1.125em;
+  color: #051480;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.comment-form-controls-submit {
+  text-align: right;
+}
+@media (max-width: 767px) {
+  .comment-form-controls-submit {
+    text-align: left;
+  }
+}
+.comment-form-controls-submit input[type=submit] {
+  margin-top: 0px;
+}
+.comment-form-controls-submit input[type=submit]:hover {
+  color: #fff;
+}
+
+@media (max-width: 767px) {
+  .post-actions-wrapper {
+    display: none;
+  }
+}
+
+/* Temporary Css */
+.comment-form-controls {
+  display: block;
 }/*# sourceMappingURL=style-theme.css.map */
