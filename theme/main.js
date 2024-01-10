@@ -714,4 +714,61 @@
       }
     });
   });
+
+  // show more article if more than 3 section in category page
+  document.addEventListener("DOMContentLoaded", function () {
+    var categoryElements = document.querySelectorAll(
+      ".section-article-list-block"
+    );
+
+    categoryElements.forEach(function (categoryElement) {
+      var sectionNameElements =
+        categoryElement.querySelectorAll(".article-list-item");
+      var categoryViewMoreButton = categoryElement.querySelector(
+        ".site-view-more-article"
+      );
+
+      // Count the visible section-name elements
+      var visibleSectionCount = Array.from(sectionNameElements).reduce(
+        function (count, sectionNameElement) {
+          return (
+            count +
+            (getComputedStyle(sectionNameElement).display !== "none" ? 1 : 0)
+          );
+        },
+        0
+      );
+
+      // Show/hide the "Toon meer" button based on the count
+      if (visibleSectionCount > 2) {
+        categoryViewMoreButton.style.display = "inline-block";
+      } else {
+        categoryViewMoreButton.style.display = "none";
+      }
+    });
+  });
+  // show more article if more than 3 section in category page
+
+  window.addEventListener("scroll", function () {
+    var header = document.getElementById("mainHeader");
+    if (window.scrollY > 200) {
+      // Adjust the scroll threshold as needed
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  });
+
+  // check home page or inner page
+  document.addEventListener("DOMContentLoaded", function () {
+    var element = document.getElementById("homePage");
+
+    if (element) {
+      // If the element with id "homePage" is found, add "yourClassName" class
+      document.body.classList.add("homePage");
+    } else {
+      // If the element with id "homePage" is not found, add "notHomePage" class to body
+      document.body.classList.add("inner-page");
+    }
+  });
 })();
