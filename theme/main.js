@@ -771,4 +771,14 @@
       document.body.classList.add("inner-page");
     }
   });
+
+  //check if status menu have href value or not
+  // Get the anchor element by its id
+  var myLink = document.getElementById("statuLink");
+
+  // Check if the href attribute is empty
+  if (myLink.getAttribute("href") === "") {
+    // If empty, hide the anchor tag
+    myLink.style.display = "none";
+  }
 })();

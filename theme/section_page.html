@@ -6,9 +6,8 @@
       <div class="category-content section-content">
         <header class="page-header">
           <h1
-            class="category-page-title category-page-title-1 category-page-{{section.id}} section-page-title-1"
+            class="category-page-title category-page-title-1 section-page-title-1"
           >
-            {{section.name}}
           </h1>
         </header>
       </div>
@@ -48,3 +47,17 @@
     </div>
   </div>
 </div>
+
+<script>
+  async function fetchData(){
+    var catIDElement = document.querySelector('.breadcrumbs li:nth-child(2) a');
+    var catID = catIDElement.getAttribute('href').match(/\d+/);
+    var apiUrl='/api/v2/help_center/categories/'+catID[0];
+    var response=await fetch(apiUrl);
+   	var data = await response.json();
+  	var categoryTitle=document.querySelector('.category-page-title');
+  	categoryTitle.innerHTML=data.category.name;
+  	categoryTitle.classList.add('category-page-title-'+data.category.id)
+  }
+  fetchData();
+</script>

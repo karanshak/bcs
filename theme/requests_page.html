@@ -1,0 +1,163 @@
+{{#if settings.request_list_beta}}
+  <div class="categories-top-container inner-page-top-container my-request-page profile-header">
+    <div class="container">
+      <header class="my-activities-header">
+        <h1>{{t 'requests'}}</h1>
+      </header>
+    </div>
+  </div>
+
+  <div class="user-profile-page-outer my-request-page-outer">
+    <div class="container">
+      <div class="user-profile-page-inner my-request-page-inner">
+        {{request_list}}
+
+        {{else}}
+        <div class="categories-top-container inner-page-top-container my-request-page">
+          <header class="my-activities-header">
+            <div class="container">
+
+              <div class="my-activities-sub-nav">
+                <nav class="collapsible-nav collapsible-nav-border">
+                  <button type="button" class="collapsible-nav-toggle" aria-label="{{t 'toggle_navigation'}}"
+                    aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" focusable="false" viewBox="0 0 12 12"
+                      aria-hidden="true" class="collapsible-nav-toggle-icon chevron-icon">
+                      <path fill="none" stroke="currentColor" stroke-linecap="round" d="M3 4.5l2.6 2.6c.2.2.5.2.7 0L9 4.5" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" focusable="false" viewBox="0 0 12 12"
+                      aria-hidden="true" class="collapsible-nav-toggle-icon x-icon">
+                      <path stroke="currentColor" stroke-linecap="round" d="M3 9l6-6m0 6L3 3" />
+                    </svg>
+                  </button>
+                  <ul class="collapsible-nav-list">
+                    {{#each filters}}
+                    {{#if selected}}
+                    <li class="current">
+                      <a href="{{url}}" aria-current="page">{{name}}</a>
+                    </li>
+                    {{else}}
+                    <li><a href="{{url}}">{{name}}</a></li>
+                    {{/if}}
+                    {{/each}}
+                  </ul>
+                </nav>
+              </div>
+
+              <h1>{{t 'my_requests'}}</h1>
+            </div>
+          </header>
+        </div>
+
+        <div class="user-profile-page-outer my-request-page-outer">
+          <div class="container">
+            <div class="user-profile-page-inner my-request-page-inner">
+              <div class="my-request-page-search-container">
+                <div class="search-container">
+                  <section class="search-box header__search-wrapper">
+                    {{search scoped=settings.scoped_community_search instant=true placeholder="Zoeken" class="input-group-search search search-full search-form top-search-form"}}
+                  </section>
+
+                  {{#form 'requests_filter' class=''}}
+                  {{#if help_center.multiple_organizations_enabled}}
+                    <div class="request-table-filter">
+                      {{label 'organization' for='request-organization-select' class='request-filter request-filter-label'}}
+                      {{select 'organization' id='request-organization-select' class='request-filter'}}
+                    </div>
+                  {{/if}}
+
+                  <div class="request-table-filter organization-subscribe">
+                    {{subscribe}}
+                  </div>
+
+                  <div class="request-table-filter">
+                    {{label 'status' for='request-status-select' class='request-filter request-filter-label'}}
+                    {{select 'status' id='request-status-select' class='request-filter'}}
+                  </div>
+                {{/form}}
+                </div>
+              </div>
+
+              {{#if query}}
+                <div class="requests-search-info meta-data">
+                  {{t 'requests_search_results_info' count=requests.length query=query}}
+                </div>
+              {{else}}
+                {{#unless requests}}
+                <p class="no-activities">{{t 'no_requests'}}</p>
+                {{/unless}}
+              {{/if}}
+
+              <div class="requests">
+                {{#if requests}}
+                <table class="table my-activities-table requests-table {{current_filter.identifier}}-requests">
+                  <thead>
+                    <tr>
+                      <th>{{t 'subject'}}</th>
+                      <th>{{t 'id'}}</th>
+                      <th>
+                        {{#is current_filter.identifier 'my'}}
+                        {{#link 'requests' sort_by='created_at'}}{{t 'created'}}{{/link}}
+                        {{else}}
+                        {{t 'requester'}}
+                        {{/is}}
+                      </th>
+                      <th>{{#link 'requests' sort_by='updated_at'}}{{t 'last_activity'}}{{/link}}</th>
+                      <th>
+                        {{t 'status'}}
+                      </th>
+                    </tr>
+                  </thead>
+          
+                  <tbody>
+                    {{#each requests}}
+                    <tr {{#is status 'closed' }} class="request-closed" {{/is}}>
+                      <td class="request-info requests-table-info">
+                        <a href="{{url}}" class="striped-list-title" title="{{subject}}">
+                          {{#if subject}}
+                          {{subject}}
+                          {{else}}
+                          {{excerpt description characters=50}}
+                          {{/if}}
+                        </a>
+          
+                        <!-- Visible on mobile -->
+                        <div class="requests-table-meta">
+                          <span class="meta-data">#{{id}}</span>
+                          <span class="meta-data">{{date created_at timeago=true}}</span>
+                          <span class="status-label status-label-request status-label-{{status}}" title="{{status_description}}">
+                            {{status_name}}
+                          </span>
+                        </div>
+                      </td>
+                      <td>#{{id}}</td>
+                      <td>
+                        {{#is ../current_filter.identifier 'my'}}
+                        {{date created_at timeago=true}}
+                        {{else}}
+                        {{requester.name}}
+                        {{/is}}
+                      </td>
+                      <td>{{date updated_at timeago=true}}</td>
+                      <td class="requests-table-status">
+                        <span class="status-label status-label-request status-label-{{status}}" title="{{status_description}}">
+                          {{status_name}}
+                        </span>
+                      </td>
+                    </tr>
+
+                    <tr class="table-row-seperator"></tr>
+                    {{/each}}
+                  </tbody>
+                </table>
+                {{/if}}
+              </div>
+
+              {{pagination}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{{/if}}

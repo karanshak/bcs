@@ -11,13 +11,17 @@
           <div class="nav-wrapper-desktop">
             <nav class="user-nav" id="user-nav">
               <ul class="user-nav-list">
-                <li><a href="#">Status</a></li>
+                <li><a href="#" id="statuLink">Status</a></li>
                 <li>{{link 'community'}}</li>
                 <li>{{link 'new_request' class='submit-a-request'}}</li>
                 {{#unless signed_in}}
                   <li>
-                    {{#link "sign_in" class="sign-in"}}
+                    {{#link "sign_in" class="sign-in sign-in-site-button"}}
                       {{t 'sign_in'}}
+                      <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.60059 0.966132C7.3916 0.540143 8.19141 0.327148 9 0.327148C9.59766 0.327148 10.207 0.454309 10.8281 0.708631C11.4492 0.962953 11.9941 1.29357 12.4629 1.70049C12.9316 2.1074 13.3154 2.56836 13.6143 3.08336C13.9131 3.59836 14.0625 4.10383 14.0625 4.59975V7.65162C14.0625 8.54174 13.8896 9.51452 13.5439 10.57C13.1982 11.6254 12.6738 12.4519 11.9707 13.0496L16.875 15.5865L16.9805 15.6246C17.0625 15.6628 17.1562 15.72 17.2617 15.7963C17.3672 15.8726 17.4756 15.9584 17.5869 16.0538C17.6982 16.1491 17.792 16.2636 17.8682 16.3971C17.9443 16.5306 17.9824 16.661 17.9824 16.7881V18.6383C17.9824 18.9689 17.874 19.2519 17.6572 19.4871C17.4404 19.7224 17.1797 19.84 16.875 19.84H1.125C0.808594 19.84 0.541992 19.7224 0.325195 19.4871C0.108398 19.2519 0 18.9689 0 18.6383V16.7881C0 16.6737 0.0410156 16.5497 0.123047 16.4162C0.205078 16.2827 0.295898 16.1714 0.395508 16.0824C0.495117 15.9934 0.609375 15.9044 0.738281 15.8153C0.867188 15.7263 0.955078 15.6691 1.00195 15.6437C1.04883 15.6182 1.08984 15.5992 1.125 15.5865L6.06445 13.0496C5.36133 12.4265 4.83105 11.5777 4.47363 10.5032C4.11621 9.42869 3.9375 8.47816 3.9375 7.65162V4.59975C3.9375 3.93852 4.18359 3.2741 4.67578 2.60651C5.16797 1.93891 5.80957 1.39212 6.60059 0.966132ZM10.415 1.84354C9.92871 1.64644 9.45703 1.54789 9 1.54789C8.39062 1.54789 7.77539 1.7132 7.1543 2.04382C6.5332 2.37444 6.0293 2.77817 5.64258 3.25503C5.25586 3.73188 5.0625 4.18012 5.0625 4.59975V7.65162C5.0625 8.351 5.21191 9.14894 5.51074 10.0454C5.80957 10.9419 6.22852 11.6254 6.76758 12.0959C7.0957 12.3756 7.2334 12.7412 7.18066 13.1927C7.12793 13.6441 6.91406 13.9652 6.53906 14.1559L1.59961 16.6928C1.2832 16.8454 1.125 17.0806 1.125 17.3985V18.6383L16.8574 18.6192V17.4366C16.8574 17.3476 16.8516 17.265 16.8398 17.1887C16.8281 17.1124 16.8076 17.0488 16.7783 16.9979C16.749 16.9471 16.7197 16.9058 16.6904 16.874C16.6611 16.8422 16.6289 16.8136 16.5938 16.7881C16.5586 16.7627 16.5293 16.7436 16.5059 16.7309C16.4824 16.7182 16.459 16.7087 16.4355 16.7023L16.4004 16.6928L11.4961 14.175C11.1211 13.9842 10.9043 13.66 10.8457 13.2022C10.834 13.0623 10.8428 12.9256 10.8721 12.7921C10.9014 12.6586 10.9512 12.5314 11.0215 12.4106C11.0918 12.2898 11.1738 12.1849 11.2676 12.0959C11.8184 11.6381 12.2344 10.9642 12.5156 10.074C12.7969 9.1839 12.9375 8.37643 12.9375 7.65162V4.59975C12.9375 4.28185 12.8203 3.9417 12.5859 3.57929C12.3516 3.21688 12.0527 2.88626 11.6895 2.58743C11.3262 2.28861 10.9014 2.04064 10.415 1.84354Z" fill="#051480"/>
+                        </svg>
+                                             
                     {{/link}}
                   </li>
                 {{/unless}}
@@ -108,7 +112,7 @@
             <nav class="menu-list-mobile" id="user-nav-mobile" aria-expanded="false">
               <ul class="menu-list-mobile-items">
                 {{#if signed_in}}
-                  <li class="user-avatar-item item">
+                  <!-- <li class="user-avatar-item item">
                     {{#my_profile role="menuitem" class="my-profile"}}
                       {{user_avatar class="menu-profile-avatar"}}
                       <div class="menu-profile-name">
@@ -116,7 +120,7 @@
                         <div class="my-profile-tooltip">{{t 'profile'}}</div>
                       </div>
                     {{/my_profile}}
-                  </li>
+                  </li> -->
                   <li class="item">{{link "requests" role="menuitem"}}</li>
                   <li class="item">{{#link "contributions" role="menuitem"}}{{t "activities"}}{{/link}}</li>
                   <li class="item">{{contact_details role="menuitem"}}</li>
@@ -140,6 +144,42 @@
                 {{/if}}
                 </li>
               </ul>
+
+              <div class="home-page-only-footer-wrapper">
+                <div class="container">
+                  <div class="home-page-only-footer-container-inner">
+                    <h3>Neem contact op via</h3>
+              
+                    <div class="home-page-only-footer-block-wrapper">
+                      <div
+                        class="home-page-only-footer-block home-page-only-footer-block-phone"
+                      >
+                        <h4>088 123 28 28</h4>
+                        <p>Ma. - Vr. 08:00 - 17:00</p>
+                      </div>
+              
+                      <div
+                        class="home-page-only-footer-block home-page-only-footer-block-mail"
+                      >
+                        <h4>Aanvraag indienen</h4>
+                        <p>Binnen één werkdag</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <footer class="footer">
+                <div class="top-footer">
+                  <div class="container">
+                    <ul>
+                      <li><a href="#"><img src="{{asset 'icon-insta.svg'}}" alt=""></a></li>
+                      <li><a href="#"><img src="{{asset 'icon-in.svg'}}" alt=""></a></li>
+                      <li><a href="#"><img src="{{asset 'icon-yt.svg'}}" alt=""></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </footer>
             </nav>
           </div>
         </div>
