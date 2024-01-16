@@ -1,0 +1,56 @@
+<div class="categories-top-container inner-page-top-container">
+  <div class="container">
+    <div class="categories-top-container-inner">
+      <nav class="sub-nav">{{breadcrumbs}}</nav>
+
+      <div class="category-content">
+        <header class="page-header">
+          <h1
+            class="category-page-title category-page-title-1 category-page-{{category.id}}"
+          >
+            {{category.name}}
+          </h1>
+          {{#if category.description}}
+          <p class="page-header-description">{{category.description}}</p>
+          {{/if}}
+        </header>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="categories-container section-container">
+  <div class="container">
+    <div class="section-container-inner">
+      <section class="section-block">
+        {{#each sections}}
+        <section class="section section-article-list-block">
+          <h2 class="section-tree-title">
+            <a href="{{url}}">{{name}}</a>
+          </h2>
+
+          {{#if articles}}
+          <ul class="article-list">
+            {{#each articles}}
+            <li
+              class="article-list-item{{#if promoted}} article-promoted{{/if}}"
+            >
+              <a href="{{url}}" class="article-list-link">{{title}}</a>
+            </li>
+            {{/each}}
+          </ul>
+
+          {{/if}}
+          <a href="#" class="site-view-more site-view-more-article"
+            >{{t 'show_all_articles' count=article_count}}</a
+          >
+        </section>
+        {{else}}
+        <i class="category-empty">
+          <a href="{{category.url}}">{{t 'empty'}}</a>
+        </i>
+        {{/each}}
+      </section>
+    </div>
+  </div>
+</div>

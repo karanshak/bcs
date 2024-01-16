@@ -1,0 +1,106 @@
+<div class="categories-top-container inner-page-top-container">
+  <div class="container">
+    <div class="categories-top-container-inner">
+      <div class="community-top-container-row community-top-container-row2">
+        <div class="community-top-container-col">
+          <nav class="sub-nav">
+            {{breadcrumbs}}
+          </nav>
+        </div>
+
+        <div class="community-top-container-col">
+          <div class="search-container">
+            <section class="search-box header__search-wrapper">
+              <h3>Niet gevonden wat je zocht?</h3>
+              {{search scoped=settings.scoped_community_search instant=true placeholder="Zoeken" class="input-group-search search search-full search-form top-search-form"}}
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="community-page-outer">
+  <div class="container">
+    <div class="community-page-inner">
+      <header class="page-header community-header">
+          <span class="dropdown">
+              <button class="dropdown-toggle" aria-haspopup="true">
+                <h2 class="title">
+                  {{t 'community_topics'}}
+                </h2>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false" viewBox="0 0 12 12" class="dropdown-chevron-icon">
+                  <path fill="none" stroke="currentColor" stroke-linecap="round" d="M3 4.5l2.6 2.6c.2.2.5.2.7 0L9 4.5"/>
+                </svg>
+              </button>
+            <span class="dropdown-menu" role="menu">
+              {{#link 'topics' role='menuitemradio' aria-checked='true'}}
+                {{t 'show_topics'}}
+              {{/link}}
+              {{#link 'posts' role='menuitemradio'}}
+                {{t 'show_all_posts'}}
+              {{/link}}
+            </span>
+          </span>
+        <span class="post-to-community">
+          {{link 'new_post' class='button button-large button-outline'}}
+        </span>
+        
+      </header>
+
+      {{#unless topics}}
+        <p>{{t 'no_content'}}</p>
+      {{/unless}}
+
+     <div class="blocks topics">
+      <ul class="blocks-list topics-list">
+        {{#each topics}}
+          <li class="blocks-item topics-item {{#if internal}}blocks-item-internal{{/if}}">
+             <a href="{{url}}" class="blocks-item-link">
+               <span class="blocks-item-title">
+                 {{name}}
+  
+                 {{#if internal}}
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" focusable="false" viewBox="0 0 16 16" class="icon-lock" title="{{t 'internal'}}">
+                    <rect width="12" height="9" x="2" y="7" fill="currentColor" rx="1" ry="1"/>
+                    <path fill="none" stroke="currentColor" d="M4.5 7.5V4a3.5 3.5 0 017 0v3.5"/>
+                  </svg>
+                 {{/if}}
+               </span>
+               <span class="blocks-item-description">{{excerpt description}}</span>
+               <ul class="meta-group">
+                 <li class="meta-data">{{t 'post_count' count=post_count}}</li>
+                 <li class="meta-data">{{t 'follower_count' count=follower_count}}</li>
+               </ul>
+             </a>
+          </li>
+        {{/each}}
+      </ul>
+     </div>
+
+     {{pagination}}
+
+    {{#if featured_posts}}
+      <section class="section community-featured-posts">
+        <h2 class="title">{{t 'featured_posts'}}</h2>
+        <ul class="promoted-articles">
+          {{#each featured_posts}}
+            <li class="promoted-articles-item">
+              <a href="{{url}}">
+                {{title}}
+              </a>
+            </li>
+          {{/each}}
+        </ul>
+      </section>
+    {{/if}}
+
+    <section class="community-activity activity">
+      {{#if help_center.community_enabled}}
+        {{recent_activity scope='community'}}
+      {{/if}}
+    </section>
+    </div>
+  </div>
+</div>

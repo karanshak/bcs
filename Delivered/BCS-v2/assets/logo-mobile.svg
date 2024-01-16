@@ -1,0 +1,22 @@
+<svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M26.9998 27V0L7.90625 7.90643L26.9998 27Z" fill="#E35B62"/>
+<path d="M27 27H54L46.0883 7.90643L27 27Z" fill="#0088CC"/>
+<path d="M46.0883 7.90643L27 0V27L46.0883 7.90643Z" fill="#DE1380"/>
+<path d="M7.90643 7.90643L0 27H27L7.90643 7.90643Z" fill="#FC833F"/>
+<path d="M27 54L46.0883 46.0883L27 27V54Z" fill="#006A8F"/>
+<path d="M54 27H27L46.0883 46.0883L54 27Z" fill="#05006E"/>
+<path d="M26.9998 27L7.90625 46.0883L26.9998 54V27Z" fill="#02AFAF"/>
+<path d="M0 27L7.90643 46.0883L27 27H0Z" fill="#F6C970"/>
+<g opacity="0.3">
+<path d="M27 29.7269L46.0883 46.0883L27 27V29.7269Z" fill="white"/>
+<path d="M25.0693 28.9305L26.9998 54V27L25.0693 28.9305Z" fill="white"/>
+<path d="M24.2676 27L7.90625 46.0883L26.9998 27H24.2676Z" fill="white"/>
+<path d="M25.0695 25.0695L0 27H27L25.0695 25.0695Z" fill="white"/>
+<path d="M26.9998 24.2678L7.90625 7.90643L26.9998 27V24.2678Z" fill="white"/>
+<path d="M28.9305 25.0695L27 0V27L28.9305 25.0695Z" fill="white"/>
+<path d="M29.7269 27L46.0883 7.90643L27 27H29.7269Z" fill="white"/>
+<path d="M28.9305 28.9305L54 27H27L28.9305 28.9305Z" fill="white"/>
+</g>
+<circle cx="27.0738" cy="27.0369" r="2.68998" fill="white"/>
+<circle cx="27.0736" cy="27.0369" r="1.79332" fill="#000054"/>
+</svg>

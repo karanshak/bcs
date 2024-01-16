@@ -1,0 +1,63 @@
+<div class="categories-top-container inner-page-top-container">
+  <div class="container">
+    <div class="categories-top-container-inner">
+      <nav class="sub-nav">{{breadcrumbs}}</nav>
+
+      <div class="category-content section-content">
+        <header class="page-header">
+          <h1
+            class="category-page-title category-page-title-1 section-page-title-1"
+          >
+          </h1>
+        </header>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section-page-container-outer">
+  <div class="container">
+    <div class="section-page-container-inner">
+      <section class="section-block">
+        <section class="section">
+          <h1
+            class="section-tree-title section-page-title section-page-title-section-id-1"
+          >
+            {{section.name}}
+          </h1>
+
+          {{#if section.articles}}
+          <ul class="article-list">
+            {{#each section.articles}}
+            <li
+              class="article-list-item {{#if promoted}} article-promoted{{/if}}"
+            >
+              
+              <a href="{{url}}" class="article-list-link">{{title}}</a>
+            </li>
+            {{/each}}
+          </ul>
+          {{else}}
+          <i class="section-empty">
+            <a href="{{section.url}}">{{t 'empty'}}</a>
+          </i>
+          {{/if}}
+        </section>
+      </section>
+    </div>
+  </div>
+</div>
+
+<script>
+  async function fetchData(){
+    var catIDElement = document.querySelector('.breadcrumbs li:nth-child(2) a');
+    var catID = catIDElement.getAttribute('href').match(/\d+/);
+    var apiUrl='/api/v2/help_center/categories/'+catID[0];
+    var response=await fetch(apiUrl);
+   	var data = await response.json();
+  	var categoryTitle=document.querySelector('.category-page-title');
+  	categoryTitle.innerHTML=data.category.name;
+  	categoryTitle.classList.add('category-page-title-'+data.category.id)
+  }
+  fetchData();
+</script>
